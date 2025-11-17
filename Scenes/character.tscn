@@ -1,7 +1,7 @@
 [gd_scene load_steps=37 format=3 uid="uid://c32ru4uu5rr6k"]
 
 [ext_resource type="Texture2D" uid="uid://gntv6uaocxk7" path="res://Sprites/knight.png" id="1_lkv7d"]
-[ext_resource type="Script" uid="uid://chdalh35oulpl" path="res://Scenes/movement.gd" id="1_ushfy"]
+[ext_resource type="Script" path="res://Scenes/movement.gd" id="1_ushfy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ushfy"]
 atlas = ExtResource("1_lkv7d")
@@ -260,7 +260,7 @@ tracks/0/path = NodePath("AnimatedSprite2D:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.23333335),
+"times": PackedFloat32Array(0, 0.233333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [&"roll", &"idle"]
@@ -272,7 +272,7 @@ tracks/1/path = NodePath("AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.20000002, 0.23333335),
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
@@ -280,9 +280,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_owm7s"]
 _data = {
-&"RESET": SubResource("Animation_owm7s"),
-&"idle": SubResource("Animation_nytcm"),
-&"roll_anim": SubResource("Animation_ushfy")
+"RESET": SubResource("Animation_owm7s"),
+"idle": SubResource("Animation_nytcm"),
+"roll_anim": SubResource("Animation_ushfy")
 }
 
 [node name="Character" type="Node2D"]
@@ -300,15 +300,9 @@ shape = SubResource("RectangleShape2D_nw3qc")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 zoom = Vector2(4, 4)
-limit_enabled = false
-limit_left = 0
-limit_top = 0
-limit_right = 0
-limit_bottom = 0
-limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
 libraries = {
-&"": SubResource("AnimationLibrary_owm7s")
+"": SubResource("AnimationLibrary_owm7s")
 }
